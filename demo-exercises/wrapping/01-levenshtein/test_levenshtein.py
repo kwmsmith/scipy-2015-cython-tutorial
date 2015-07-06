@@ -1,3 +1,5 @@
+from timeit import timeit
+
 import levenshtein_cython
 import levenshtein_solution
 
@@ -11,3 +13,11 @@ def test(func):
 
 # test(levenshtein_cython.levenshtein_distance)
 test(levenshtein_solution.levenshtein_distance)
+
+N = 200000
+
+print "*" * 80
+print "wrapped levenshtein(): %.2f" % timeit("levenshtein_distance('kitten', 'sitting')",
+                                        "from levenshtein_solution import levenshtein_distance",
+                                        number=N)
+print "*" * 80
