@@ -18,11 +18,11 @@ interact with Cython in a different way.
 
    Mac / Linux: Run the following to compile the extension module::
 
-        python setup.py build_ext --inplace
+        $ python setup.py build_ext --inplace
 
    Windows: run the following, making note of the extra command::
 
-        python setup.py build_ext --inplace --compiler=mingw32
+        $ python setup.py build_ext --inplace --compiler=mingw32
 
    If successful, you will see a new extension module in your directory.  It
    will be named `cython_hello_world.so` on Mac or Linux,
