@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 #define MIN2(a, b) ((a) < (b) ? (a) : (b))
 #define MIN3(a, b, c) (MIN2((c), MIN2((a), (b))))
 
@@ -15,7 +16,7 @@ int levenshtein_dist(const char *s, const char *t)
     for (i=1; i<m+1; ++i)
         d[i*(n+1)] = i;
 
-    for (j=1; j<n+1; ++j)
+    for (j=0; j<n+1; ++j)
         d[j] = j;
 
     for (j=1; j<n+1; ++j) {
@@ -32,10 +33,12 @@ int levenshtein_dist(const char *s, const char *t)
         }
     }
 
+    int out = d[m * (n+1) + n];
+
     if(d)
         free(d);
+    return out;
 
-    return d[m * (n+1) + n];
 
 fail:
     return -1;
